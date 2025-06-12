@@ -8,6 +8,8 @@ status_bp = Blueprint('status', __name__)
 @with_vv_connection
 def get_vv_status(vv_instance):
     status = vv_instance.Status()
+    color = DecodeStatusColor(status)
+        
     serialnumber = vv_instance.ReportField('BoxSerialNumber')
     version = vv_instance.ReportField('Version')
     return_color = DecodeStatusColor(status)
@@ -15,9 +17,8 @@ def get_vv_status(vv_instance):
     boxtemp = vv_instance.ReportField('BoxTemp')
 
     return jsonify({
-        'StopCode': status['stop_code'],
-        'StopCodeIndex': status['stop_code_index'],
-        'Color': return_color,
+        'Status': status,
+        'Color': color,
         'SerialNumber': serialnumber,
         'Version': version,
         'BoxCalDate': boxcaldate,

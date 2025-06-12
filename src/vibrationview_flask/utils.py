@@ -5,10 +5,16 @@ def ParseVvTable(dict_table):
     pass
 
 def DecodeStatusColor(status):
-    """Decode status color based on status information"""
-    # Implementation depends on your existing logic
-    # This is a placeholder for your existing implementation
-    return "Unknown"  # Replace with actual implementation
+    color_map = {
+        0: 'healthy',
+        1: 'yellow',
+        2: 'critical'
+    }
+        # Convert string to integer if needed
+
+    return_color_code = status['stop_code_index'] >> 12
+    return color_map.get(return_color_code, 'unknown')
+
 
 def get_channel_data(vv_instance, field_keys):
     """

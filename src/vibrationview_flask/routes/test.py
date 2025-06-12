@@ -93,8 +93,7 @@ def vv_open_test(vv_instance, file_path, file_size):
     color = DecodeStatusColor(status)
     
     return jsonify({
-        'StopCode': status['stop_code'],
-        'StopCodeIndex': status['stop_code_index'],
+        'Status': status,
         'Color': color,
         'File': file_path,
         'Size': file_size
