@@ -9,6 +9,8 @@ def register_routes(app):
     from routes.opentest import opentest_bp
     from routes.stoptest import stoptest_bp
     from routes.starttest import starttest_bp
+    from routes.log import log_bp   
+    from routes.lastsaveddata import lastsaveddata_bp
     
     # Register blueprints
     app.register_blueprint(status_bp)
@@ -19,4 +21,5 @@ def register_routes(app):
     app.register_blueprint(inputconfig_bp)
     app.register_blueprint(opentest_bp)
     app.register_blueprint(stoptest_bp)
-    app.register_blueprint(starttest_bp)
+    app.register_blueprint(starttest_bp)    
+    app.register_blueprint(lastsaveddata_bp)
