@@ -139,3 +139,21 @@ def GenerateReportFromVV(filePath: str, templateName: str, outputName: str) -> s
 
     return outPath
 
+def GetVectorData(vvInstance,vector):
+    try:
+        cols = vvInstance.GetHardwareInputChannels() + 1
+        dataList = []
+        dataList.append(vvInstance.Vector(vector))
+
+        headers = [vvInstance.VectorLabel(vector)]
+        for i in range(cols - 1):
+            field = f'CH{i+1}NAME'
+            headers.append(vvInstance.ReportField(field))
+            dataList.append(vvInstance.Vector(vector + i))
+
+        units = [vvInstance.VectorUnit(vector + i) for i in range(cols)]
+
+        return {'headers': headers, 'units': units, 'columns': dataList}
+
+    except Exception as e:
+        raise RuntimeError(f'Error retrieving vector data: {e}')
