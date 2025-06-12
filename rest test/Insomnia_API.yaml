@@ -1,0 +1,325 @@
+type: collection.insomnia.rest/5.0
+name: VibrationVIEW API
+meta:
+  id: wrk_a278715e91384d3991dc54e843e18013
+  created: 1745001379498
+  modified: 1745001379498
+collection:
+  - url: "{{ _.base_url }}/status"
+    name: Get current VibrationVIEW status
+    meta:
+      id: req_67b7b578763b41c1aaf9dfa1eaea3c26
+      created: 1745001561216
+      modified: 1745001561216
+      isPrivate: false
+      sortKey: -1745001561216
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/maximize"
+    name: Maximize VibrationVIEW window
+    meta:
+      id: req_9317c1c9e4fe4e2ea2ea934596963adb
+      created: 1745001561217
+      modified: 1745001561217
+      isPrivate: false
+      sortKey: -1745001561217
+    method: POST
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/opentest?filename=amazon_test.vrp"
+    name: Upload and open a test file
+    meta:
+      id: req_2ff50b581372448cae365edfcd818869
+      created: 1745001561218
+      modified: 1745002200155
+      isPrivate: false
+      sortKey: -1745001561218
+    method: PUT
+    body:
+      mimeType: application/octet-stream
+      fileName: D:\Data\Amazon\profiles\amazon_test.vrp
+    parameters:
+      - name: filename
+        disabled: false
+        value: string
+        id: pair_cda69fcf3a3547358aaca220048ccca3
+        type: text
+        multiline: false
+    headers:
+      - name: Content-Type
+        disabled: false
+        value: application/octet-stream
+        id: pair_001e7bde2c8c4cbeb6cf69c4a2cea8ee
+      - id: pair_736cfae71f654a1c9237fae00cf48d1d
+        name: filename
+        value: amazon_test.vrp
+        disabled: false
+        type: text
+        multiline: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/runtest?filename=amazon_test.vrp"
+    name: Upload and run a test file
+    meta:
+      id: req_c427e07f7c094e5ca8bfd518aecbed6b
+      created: 1745001561218
+      modified: 1745002273372
+      isPrivate: false
+      sortKey: -1745001561218
+    method: PUT
+    body:
+      mimeType: application/octet-stream
+      fileName: D:\Data\Amazon\profiles\amazon_test.vrp
+    parameters:
+      - name: filename
+        disabled: false
+        value: string
+    headers:
+      - name: Content-Type
+        disabled: false
+        value: application/octet-stream
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/report?filename=amazon_test.vrp"
+    name: Upload data file and generate report
+    meta:
+      id: req_1043bb866db84221b9942b55a574b43b
+      created: 1745001561219
+      modified: 1745002548041
+      isPrivate: false
+      sortKey: -1745001561219
+    method: PUT
+    body:
+      mimeType: application/octet-stream
+      fileName: D:\Data\Amazon\profiles\amazon_test.vrp
+    parameters:
+      - name: filename
+        disabled: false
+        value: string
+      - name: template
+        disabled: true
+        value: string
+      - name: output
+        disabled: true
+        value: string
+    headers:
+      - name: Content-Type
+        disabled: false
+        value: application/octet-stream
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/log"
+    name: Get test log entries
+    meta:
+      id: req_07460837018b48038ee538c831bdf7b6
+      created: 1745001561220
+      modified: 1745001561220
+      isPrivate: false
+      sortKey: -1745001561220
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/stoptest"
+    name: Stop currently running test
+    meta:
+      id: req_cdbf835652ed4dfc803077702b2b0f10
+      created: 1745001561220
+      modified: 1745001561220
+      isPrivate: false
+      sortKey: -1745001561220
+    method: PUT
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/channels"
+    name: Get current channel values
+    meta:
+      id: req_5fc31414b72d43b5825a64a252cd0ade
+      created: 1745001561223
+      modified: 1745001561223
+      isPrivate: false
+      sortKey: -1745001561223
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/datatime"
+    name: Get waveform (time-domain) data
+    meta:
+      id: req_59192f1674bd4686b17cebe4fcc24197
+      created: 1745001561224
+      modified: 1745003921784
+      isPrivate: false
+      sortKey: -1745001561225
+    method: GET
+    body:
+      mimeType: application/json
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/datafreq"
+    name: Get frequency axis data
+    meta:
+      id: req_8d89b97be0c24e38be1c81b712f6a976
+      created: 1745001561224
+      modified: 1745001561224
+      isPrivate: false
+      sortKey: -1745001561224
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/datahistory"
+    name: Get time history data
+    meta:
+      id: req_4f234d5019ff4fbd98217a3cad88c59f
+      created: 1745001561225
+      modified: 1745001561225
+      isPrivate: false
+      sortKey: -1745001561225
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/inputconfig"
+    name: Get input channel configuration
+    meta:
+      id: req_116ee90db8934755ae675ddb88af41e9
+      created: 1745001561226
+      modified: 1745001561226
+      isPrivate: false
+      sortKey: -1745001561226
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/inputteds"
+    name: Get TEDS information per input channel
+    meta:
+      id: req_17ecedf340a44469bdc60c009addb86a
+      created: 1745001561226
+      modified: 1745001561226
+      isPrivate: false
+      sortKey: -1745001561226
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/lastsaveddata"
+    name: Generate report from last saved test data
+    meta:
+      id: req_44f2d4a73c3b42d19443361550cf8ea6
+      created: 1745001561226
+      modified: 1745001561226
+      isPrivate: false
+      sortKey: -1745001561226
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_83711cef52b1c01058bc992a960e2ece83b87fb0
+    created: 1745001379505
+    modified: 1745001379505
+environments:
+  name: Base Environment
+  meta:
+    id: env_83711cef52b1c01058bc992a960e2ece83b87fb0
+    created: 1745001379504
+    modified: 1745001561213
+    isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env localhost:5000
+      meta:
+        id: env_2f513eb1ac354e348111438dc44b3bc1
+        created: 1745001561214
+        modified: 1745001561214
+        isPrivate: false
+        sortKey: 1745001561214
+      data:
+        scheme: http
+        host: localhost:5000
