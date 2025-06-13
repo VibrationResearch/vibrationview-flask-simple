@@ -11,9 +11,7 @@ def register_routes(app):
     from routes.starttest import starttest_bp
     from routes.log import log_bp   
     from routes.lastsaveddata import lastsaveddata_bp
-    from routes.datatime import datatime_bp
-    from routes.datafreq import datafreq_bp
-    from routes.datahistory import datahistory_bp
+    from routes.vectordata import vectordata_bp
 
     # Register blueprints
     app.register_blueprint(status_bp)
@@ -26,6 +24,4 @@ def register_routes(app):
     app.register_blueprint(stoptest_bp)
     app.register_blueprint(starttest_bp)    
     app.register_blueprint(lastsaveddata_bp)
-    app.register_blueprint(datatime_bp)    
-    app.register_blueprint(datafreq_bp)    
-    app.register_blueprint(datahistory_bp)
+    app.register_blueprint(vectordata_bp)    
