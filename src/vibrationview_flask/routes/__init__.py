@@ -7,8 +7,7 @@ def register_routes(app):
     from routes.test import test_bp
     from routes.inputconfig import inputconfig_bp
     from routes.opentest import opentest_bp
-    from routes.stoptest import stoptest_bp
-    from routes.starttest import starttest_bp
+    from routes.testcontrol import testcontrol_bp
     from routes.log import log_bp   
     from routes.lastsaveddata import lastsaveddata_bp
     from routes.vectordata import vectordata_bp
@@ -21,7 +20,6 @@ def register_routes(app):
     app.register_blueprint(test_bp)
     app.register_blueprint(inputconfig_bp)
     app.register_blueprint(opentest_bp)
-    app.register_blueprint(stoptest_bp)
-    app.register_blueprint(starttest_bp)    
+    app.register_blueprint(testcontrol_bp)
     app.register_blueprint(lastsaveddata_bp)
     app.register_blueprint(vectordata_bp)    
