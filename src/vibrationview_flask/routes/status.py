@@ -1,11 +1,11 @@
 from flask import Blueprint, jsonify
 from utils import DecodeStatusColor
-from vv_manager import with_vv_connection
+from vv_manager import with_vibrationview
 
 status_bp = Blueprint('status', __name__)
 
 @status_bp.route('/status', methods=['GET'])
-@with_vv_connection
+@with_vibrationview
 def get_vv_status(vv_instance):
     status = vv_instance.Status()
     color = DecodeStatusColor(status)

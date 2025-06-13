@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify
-from vv_manager import with_vv_connection, extract_com_error_info
-
+from vv_manager import with_vibrationview 
+from utils import extract_com_error_info
 teds_bp = Blueprint('teds', __name__)
 
 @teds_bp.route('/inputteds', methods=['GET'])
-@with_vv_connection
+@with_vibrationview
 def get_input_teds(vv_instance):
     all_teds_data = []
     num_channels = vv_instance.GetHardwareInputChannels()
@@ -27,4 +27,3 @@ def get_input_teds(vv_instance):
             all_teds_data.append(teds_error)
 
     return jsonify(all_teds_data)
-

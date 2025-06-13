@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
-from vv_manager import with_vv_connection, extract_com_error_info
-from utils import DecodeStatusColor
+from vv_manager import with_vibrationview
+from utils import DecodeStatusColor, extract_com_error_info
 
 # Import or define your handle_binary_upload function and MAX_CONTENT_LENGTH
 # Placeholder for your existing implementation
@@ -75,7 +75,7 @@ def open_test():
     # Call the VV operation function with our decorator
     return vv_open_test(file_path, file_size)
 
-@with_vv_connection
+@with_vibrationview
 def vv_open_test(vv_instance, file_path, file_size):
     """
     Opens a test file in VibrationVIEW
