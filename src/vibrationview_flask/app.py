@@ -1,39 +1,48 @@
-import os
 from flask import Flask
 from routes import register_routes
 
+def get_vv_instance():
+    """Get VibrationVIEW instance - thread-safe internally"""
+    try:
+        from vibrationviewapi import VibrationVIEW
+        vv_instance = VibrationVIEW()
+        
+        if vv_instance.vv is None:
+            print("Failed to connect to VibrationVIEW")
+            return None
+            
+        return vv_instance
+        
+    except ImportError as e:
+        print(f"Could not import VibrationVIEW API: {e}")
+        return None
+    except Exception as e:
+        print(f"Error connecting to VibrationVIEW: {e}")
+        return None
+
 def create_app():
     app = Flask(__name__)
-    
-    # Register all routes
     register_routes(app)
-    
     return app
 
 if __name__ == '__main__':
-    # Only initialize VibrationVIEW in the main process, not reloader
-    if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
-        try:
-            # Import here to avoid circular imports
-            from vibrationviewapi import VibrationVIEW
-            
-            # Check VV connection before starting server
-            vv_instance = VibrationVIEW()
-            if vv_instance.vv is None:
-                print("Connection to VibrationVIEW failed")
-                vv_instance = None  # Release the connection
-                exit(-1)
-            
-        except ImportError as e:
-            print(f"Could not import VibrationVIEW API: {e}")
-            print("Make sure they are in the same directory or in your Python path.")
-            exit(-1)
-        except Exception as e:
-            print(f"Unexpected error: {e}")
-            exit(-1)
+    # Simple connection test
+    print("Testing VibrationVIEW connection...")
+    test_instance = get_vv_instance()
+    if test_instance is None:
+        print("Failed to initialize VibrationVIEW. Exiting.")
+        exit(-1)
+    else:
+        print("VibrationVIEW connection test successful")
     
     # Create and run app
-    print("Creating Flask app...")
-    app = create_app()
     print("Starting Flask server...")
-    app.run(debug=True)
+    app = create_app()
+    
+    try:
+        app.run(debug=True, threaded=True)
+    except KeyboardInterrupt:
+        print("\nShutting down...")
+    except Exception as e:
+        print(f"Server error: {e}")
+        raise
