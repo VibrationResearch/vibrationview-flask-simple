@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Flask Direct",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/vibrationview_flask/app.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
