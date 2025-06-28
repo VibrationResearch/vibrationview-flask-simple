@@ -152,6 +152,7 @@ The API is built using Flask with a modular blueprint structure:
 
 - **Flask**: Web framework (BSD-3-Clause license)
 - **VibrationVIEW**: Licensed vibration control and analysis software (Proprietary license)
+- VibrationVIEW automation option (VR9604) - OR - VibrationVIEW may be run in Simulation mode without any additional hardware or software
 
 **Note**: While this example code is released under CC0 (public domain), each dependency has its own license terms that must be respected. Users are responsible for ensuring compliance with all third-party library licenses. A valid VibrationVIEW software license is required to use this API, as it interfaces with the licensed VibrationVIEW application.
 - **Custom utilities**: Error handling, data parsing, and VibrationVIEW management
