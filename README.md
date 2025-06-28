@@ -12,6 +12,12 @@ A Flask-based REST API for controlling and monitoring VibrationVIEW software. Th
 - **TEDS Support**: Access transducer electronic data sheet information
 - **Logging**: Retrieve system events and logs
 
+### Requirements
+
+- VibrationVIEW software installed
+- VibrationVIEW automation option (VR9604) - OR - VibrationVIEW may be run in Simulation mode without any additional hardware or software
+
+
 ## API Endpoints
 
 ### System Status
